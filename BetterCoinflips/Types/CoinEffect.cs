@@ -269,6 +269,7 @@ namespace BetterCoinflips.Types
                 Scp244 vase = (Scp244)Item.Create(ItemType.SCP244a);
                 vase.Primed = true;
                 vase.CreatePickup(player.Position);
+                player.EnableEffect(EffectType.Slowness, 5, true);
             }),
 
             // 10: Spawns a tantrum on the player Keywords: shit spawn create
