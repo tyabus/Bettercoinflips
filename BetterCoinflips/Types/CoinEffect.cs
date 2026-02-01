@@ -15,6 +15,7 @@ using Respawning;
 using UnityEngine;
 using Player = Exiled.API.Features.Player;
 using FCassie = Exiled.API.Features.Cassie;
+using CustomPlayerEffects;
 
 namespace BetterCoinflips.Types
 {
@@ -382,6 +383,8 @@ namespace BetterCoinflips.Types
                 
                 if (spectList.IsEmpty())
                 {
+                    player.EnableEffect(EffectType.CardiacArrest);
+                    EventHandlers.SendBroadcast(player, Translations.SpectatorSwapOnePlayerMessage);
                     return;
                 }
                 
