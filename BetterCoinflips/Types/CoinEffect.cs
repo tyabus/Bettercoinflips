@@ -413,8 +413,13 @@ namespace BetterCoinflips.Types
                 
                 spect.Role.Set(player.Role.Type, RoleSpawnFlags.None);
                 spect.Teleport(player);
-                spect.Health = player.Health;
-                
+
+                // Failsafe
+                if(player.Health > 0)
+                    spect.Health = player.Health;
+                else
+                    spect.Health = 1;
+
                 List<ItemType> playerItems = player.Items.Select(item => item.Type).ToList();
 
                 foreach (var item in playerItems)
