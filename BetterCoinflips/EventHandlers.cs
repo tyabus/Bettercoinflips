@@ -7,6 +7,7 @@ using BetterCoinflips.Types;
 using Exiled.API.Features.Pickups;
 using Exiled.Events.EventArgs.Map;
 using Exiled.Events.EventArgs.Player;
+using PlayerRoles;
 using UnityEngine;
 
 namespace BetterCoinflips
@@ -81,13 +82,43 @@ namespace BetterCoinflips
             }
         }
 
+        //helper method
+        public static bool IsValidPlayer(Player pl)
+        {
+            // check if player is null
+            if (pl == null)
+                return false;
+
+            // check if its a NPC/Dedicated Srv player
+            if (pl.IsNPC || pl.IsHost)
+                return false;
+
+            // check if fully connected
+            if (!pl.IsConnected)
+                return false;
+
+            // we do not touch overwatch at all
+            if (pl.Role.Type == RoleTypeId.Overwatch)
+                return false;
+
+            return true;
+        }
+
         //main plugin logic
         public void OnCoinFlip(FlippingCoinEventArgs ev)
         {
             //broadcast message
             string message = ""; 
             //used to remove the coin if uses run out, since they are checked before executing the effect
-            bool helper = false; 
+            bool helper = false;
+
+            //check if player is valid
+            if (!IsValidPlayer(ev.Player))
+            {
+                Log.Debug($"{nameof(OnCoinFlip)} Invalid player tried to throw a coin.");
+                return;
+            }
+
             //check if player is on cooldown
             bool flag = _cooldownDict.ContainsKey(ev.Player.RawUserId) 
                         && (DateTime.UtcNow - _cooldownDict[ev.Player.RawUserId]).TotalSeconds < Config.CoinCooldown;
