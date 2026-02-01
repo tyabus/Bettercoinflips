@@ -38,7 +38,8 @@ namespace BetterCoinflips
             { 11, Config.EmptyHidChance },
             { 12, Config.ForceRespawnChance },
             { 13, Config.SizeChangeChance },
-            { 14, Config.RandomItemChance }
+            { 14, Config.RandomItemChance },
+            { 15, Config.RandomSCPItemChance }
         };
 
         //Dict of all bad coin effect chances with an index

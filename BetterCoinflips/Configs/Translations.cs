@@ -37,9 +37,8 @@ namespace BetterCoinflips.Configs
         public string SizeChangeMessage { get; set; } = "You got gnomed.";
         public string SizeChangeRestoredMessage { get; set; } = "You returned to your original size.";
         public string RandomItemMessage { get; set; } = "You got a random item!";
+        public string RandomSCPItemMessage { get; set; } = "You got a random SCP item!";
 
-
-        
         [Description("Here you can set the message for each of these bad coin effects.")]
         public string HpReductionMessage { get; set; } = "Your hp got reduced by 30%.";
         public string TpToClassDCellsMessage { get; set; } = "You got teleported to Class D cells.";

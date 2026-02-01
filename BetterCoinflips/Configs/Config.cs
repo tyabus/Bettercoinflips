@@ -165,6 +165,20 @@ namespace BetterCoinflips.Configs
             ItemType.GunFRMG0,
         };
 
+        public HashSet<ItemType> SCPItemsToGive { get; set; } = new()
+        {
+            ItemType.SCP500,
+            ItemType.GunSCP127,
+            ItemType.SCP1576,
+            ItemType.SCP207,
+            ItemType.AntiSCP207,
+            ItemType.SCP1853,
+            ItemType.SCP1344,
+            ItemType.SCP268,
+            ItemType.SCP018,
+            ItemType.SCP2176,
+        };
+
         public HashSet<RoomType> RoomsToTeleport { get; set; } = new()
         {
             RoomType.EzCafeteria,
@@ -235,6 +249,7 @@ namespace BetterCoinflips.Configs
         public int ForceRespawnChance { get; set; } = 15;
         public int SizeChangeChance { get; set; } = 20;
         public int RandomItemChance { get; set; } = 35;
+        public int RandomSCPItemChance { get; set; } = 5;
 
         [Description("The chance of these bad effects happening. It's a proportional chance not a % chance.")]
         public int HpReductionChance { get; set; } = 20;

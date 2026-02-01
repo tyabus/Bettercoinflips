@@ -170,6 +170,15 @@ namespace BetterCoinflips.Types
 
                 item.CreatePickup(player.Position);
             }),
+
+            // 15: Spawns a random SCP item for the player.
+            new CoinFlipEffect(Translations.RandomSCPItemMessage, player =>
+            {
+                var itemType = Config.SCPItemsToGive.ToList().RandomItem();
+                var item = Item.Create(itemType);
+
+                item.CreatePickup(player.Position);
+            }),
         };
 
 
