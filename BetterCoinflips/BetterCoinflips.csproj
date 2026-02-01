@@ -14,23 +14,26 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>$(EXILED_REFERENCES)\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>$(SL_REFERENCES)\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(SL_REFERENCES)\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Mirror">
-      <HintPath>$(EXILED_REFERENCES)\Mirror.dll</HintPath>
+      <HintPath>$(SL_REFERENCES)\Mirror.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>$(EXILED_REFERENCES)\UnityEngine.dll</HintPath>
+      <HintPath>$(SL_REFERENCES)\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(EXILED_REFERENCES)\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>$(SL_REFERENCES)\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>$(EXILED_REFERENCES)\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>$(SL_REFERENCES)\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ExMod.Exiled" Version="9.6.1" />
+    <PackageReference Include="ExMod.Exiled" Version="9.12.6" />
     <PackageReference Include="Lib.Harmony">
       <Version>2.2.2</Version>
     </PackageReference>
