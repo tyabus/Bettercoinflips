@@ -216,6 +216,7 @@ namespace BetterCoinflips.Configs
             RoomType.LczTCross,
             RoomType.LczToilets,
             RoomType.Surface,
+            RoomType.Pocket,
         };
 
         [Description("The chance of these good effects happening. It's a proportional chance not a % chance.")]

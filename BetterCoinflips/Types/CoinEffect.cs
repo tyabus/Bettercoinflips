@@ -520,6 +520,10 @@ namespace BetterCoinflips.Types
                 }
                 
                 player.Teleport(Room.Get(Config.RoomsToTeleport.GetRandomValue()));
+
+                //prevents the player from staying in PD forever
+                if (player.CurrentRoom.Type == RoomType.Pocket)
+                    player.EnableEffect(EffectType.PocketCorroding);
             }),
 
             // 22: Handcuffs the player and drops their items
