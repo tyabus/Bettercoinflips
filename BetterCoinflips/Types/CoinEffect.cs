@@ -76,6 +76,7 @@ namespace BetterCoinflips.Types
             // 4: Increases the player's health by 10%.
             new CoinFlipEffect(Translations.HealthIncreaseMessage, player =>
             {
+                player.MaxHealth *= 1.1f;
                 player.Health *= 1.1f;
             }),
 
