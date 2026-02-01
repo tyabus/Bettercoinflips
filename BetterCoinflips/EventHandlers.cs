@@ -119,6 +119,12 @@ namespace BetterCoinflips
                 return;
             }
 
+            if (!Config.CanThrowBeforeRound && !Round.IsStarted)
+            {
+                Log.Debug($"{ev.Player.Nickname} tried to throw a coin before round has started.");
+                return;
+            }
+
             //check if player is on cooldown
             bool flag = _cooldownDict.ContainsKey(ev.Player.RawUserId) 
                         && (DateTime.UtcNow - _cooldownDict[ev.Player.RawUserId]).TotalSeconds < Config.CoinCooldown;

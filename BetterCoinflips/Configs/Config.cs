@@ -14,6 +14,9 @@ namespace BetterCoinflips.Configs
         [Description("Whether or not debug logs should be shown. Default: false")]
         public bool Debug { get; set; } = false;
 
+        [Description("Whether or not allow coin throwing before a round begins. Default: false")]
+        public bool CanThrowBeforeRound { get; set; } = false;
+
         [Description("The amount of base game spawned coins that should be removed. Default: 4")]
         public int DefaultCoinsAmount { get; set; } = 4;
 
