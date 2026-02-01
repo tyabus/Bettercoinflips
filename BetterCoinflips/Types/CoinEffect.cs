@@ -181,7 +181,7 @@ namespace BetterCoinflips.Types
 
                 if (Warhead.IsDetonated)
                 {
-                    player.Kill(DamageType.Decontamination);
+                    player.Kill(DamageType.Warhead);
                 }
             }),
 
