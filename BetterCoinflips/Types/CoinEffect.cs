@@ -393,7 +393,7 @@ namespace BetterCoinflips.Types
             }),
 
             // 18: swap with a spectator
-            new CoinFlipEffect(Player.List.Where(x => x.Role.Type == RoleTypeId.Spectator).IsEmpty() ? Translations.SpectSwapNoSpectsMessage : Translations.SpectSwapPlayerMessage, player =>
+            new CoinFlipEffect(Player.List.Where(x => x.IsConnected && x.Role.Type == RoleTypeId.Spectator).IsEmpty() ? Translations.SpectSwapNoSpectsMessage : Translations.SpectSwapPlayerMessage, player =>
             {
                 var spectList = Player.List.Where(x => x.Role.Type == RoleTypeId.Spectator).ToList();
                 
