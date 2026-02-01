@@ -324,6 +324,7 @@ namespace BetterCoinflips.Types
                 player.DropItems();
                 switch (player.Role.Type)
                 {
+                    default:
                     case RoleTypeId.Scientist:
                         player.Role.Set(RoleTypeId.ClassD, RoleSpawnFlags.AssignInventory);
                         break;
