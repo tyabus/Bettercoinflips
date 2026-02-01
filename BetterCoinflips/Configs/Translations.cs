@@ -35,6 +35,7 @@ namespace BetterCoinflips.Configs
         public string EmptyHidMessage { get; set; } = "DID YOU JUST GET A MICRO HID!?";
         public string ForceRespawnMessage { get; set; } = "Someone respawned... probably.";
         public string SizeChangeMessage { get; set; } = "You got gnomed.";
+        public string SizeChangeRestoredMessage { get; set; } = "You returned to your original size.";
         public string RandomItemMessage { get; set; } = "You got a random item!";
 
 

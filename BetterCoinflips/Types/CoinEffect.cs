@@ -145,7 +145,18 @@ namespace BetterCoinflips.Types
             // 13: Changes the player's size
             new CoinFlipEffect(Translations.SizeChangeMessage, player =>
             {
-                player.Scale = new Vector3(1.13f, 0.5f, 1.13f);
+                Vector3 oldScale = player.Scale;
+                player.Scale = new Vector3(1.13f, 0.6f, 1.13f);
+
+                // Maybe make this a config in the future?
+                Timing.CallDelayed(25f, () =>
+                {
+                        if (player is null || !player.IsConnected || !player.IsAlive)
+                            return;
+
+                        player.Scale = oldScale;
+                        EventHandlers.SendBroadcast(player, Translations.SizeChangeRestoredMessage);
+                });
             }),
 
             // 14: Spawns a random item for the player.
