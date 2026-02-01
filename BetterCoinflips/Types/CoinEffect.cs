@@ -293,11 +293,15 @@ namespace BetterCoinflips.Types
                 player.Scale = new Vector3(1, 1, 1);
                 
                 var randomScp = Config.ValidScps.ToList().RandomItem();
-                player.Role.Set(randomScp, RoleSpawnFlags.AssignInventory);
+                player.Role.Set(randomScp, SpawnReason.ItemUsage, RoleSpawnFlags.AssignInventory);
                 
                 //prevents the player from staying in PD forever
                 if (player.CurrentRoom.Type == RoomType.Pocket)
                     player.EnableEffect(EffectType.PocketCorroding);
+
+                //Health percentage
+                if (player.Role.Type != RoleTypeId.Scp079)
+                    player.Health *= Config.TurnedSCPHealthPercentage;
             }),
             
             // 13: Resets player's inventory

@@ -45,6 +45,9 @@ namespace BetterCoinflips.Configs
         [Description("The duration of the map blackout. Default: 10")]
         public float MapBlackoutTime { get; set; } = 10;
 
+        [Description("Percentage of health a freshly turned SCP will get. Default: 85")]
+        public float TurnedSCPHealthPercentage { get; set; } = 0.85f;
+
         [Description("The fuse time of the grenade falling on your head. Default: 3.25")]
         public double LiveGrenadeFuseTime { get; set; } = 3.25;
 
