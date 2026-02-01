@@ -8,14 +8,13 @@ using Exiled.API.Features;
 using Exiled.API.Features.Doors;
 using Exiled.API.Features.Items;
 using Exiled.API.Features.Pickups;
-using Exiled.API.Features.Waves;
 using InventorySystem.Items.Firearms.Attachments;
 using MEC;
 using PlayerRoles;
 using Respawning;
-using Respawning.Waves;
 using UnityEngine;
 using Player = Exiled.API.Features.Player;
+using FCassie = Exiled.API.Features.Cassie;
 
 namespace BetterCoinflips.Types
 {
@@ -270,7 +269,7 @@ namespace BetterCoinflips.Types
             {
                 var scpName = _scpNames.ToList().RandomItem();
                 
-                Cassie.MessageTranslated($"scp {scpName.Key} successfully terminated by automatic security system",
+                FCassie.MessageTranslated($"scp {scpName.Key} successfully terminated by automatic security system",
                     $"{scpName.Value} successfully terminated by Automatic Security System.");
             }),
 
