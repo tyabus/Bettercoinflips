@@ -411,7 +411,6 @@ namespace BetterCoinflips.Types
                 if (spectList.IsEmpty())
                 {
                     player.EnableEffect(EffectType.CardiacArrest);
-                    EventHandlers.SendBroadcast(player, Translations.SpectatorSwapOnePlayerMessage);
                     return;
                 }
                 

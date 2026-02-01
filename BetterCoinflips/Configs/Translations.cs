@@ -65,7 +65,7 @@ namespace BetterCoinflips.Configs
         public string KickMessage { get; set; } = "Bye!";
         public string SpectSwapPlayerMessage { get; set; } = "You just made someone's round better!";
         public string SpectSwapSpectMessage { get; set; } = "You were chosen as a random spectator to replace this player!";
-        public string SpectSwapNoSpectsMessage { get; set; } = "You got lucky cause there are no spectators to take your place.";
+        public string SpectSwapNoSpectsMessage { get; set; } = "You feel sudden chest pain.";
         public string TeslaTpMessage { get; set; } = "So you're a fan of electricity?";
         public string TeslaTpAfterWarheadMessage { get; set; } = "You were teleported into a radioactive zone.";
         
