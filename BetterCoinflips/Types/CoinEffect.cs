@@ -373,7 +373,12 @@ namespace BetterCoinflips.Types
             new CoinFlipEffect(Translations.KickMessage, player =>
             {
                 //delay so the broadcast can be sent to the player and doesn't throw NRE
-                Timing.CallDelayed(1f, () => player.Kick(Config.KickReason));
+                Timing.CallDelayed(2f, () =>
+                {
+                    // Check that he didn't leave
+                    if(player != null && player.IsConnected)
+                        player.Kick(Config.KickReason);
+                });
             }),
 
             // 18: swap with a spectator
