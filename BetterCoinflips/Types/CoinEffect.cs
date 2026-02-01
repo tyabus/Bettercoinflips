@@ -179,6 +179,9 @@ namespace BetterCoinflips.Types
             // 0: Reduces player's health by 30%
             new CoinFlipEffect(Translations.HpReductionMessage, player =>
             {
+                if (player is null || !player.IsConnected || !player.IsAlive)
+                    return;
+
                 if ((int) player.Health == 1)
                     player.Kill(DamageType.CardiacArrest);
                 else
@@ -257,6 +260,9 @@ namespace BetterCoinflips.Types
             // 8: Sets player hp to 1 or kills if it was already 1
             new CoinFlipEffect(Translations.HugeDamageMessage, player =>
             {
+                if (player is null || !player.IsConnected || !player.IsAlive)
+                    return;
+
                 if ((int) player.Health == 1)
                     player.Kill(DamageType.CardiacArrest);
                 else
@@ -400,7 +406,7 @@ namespace BetterCoinflips.Types
             // 18: swap with a spectator
             new CoinFlipEffect(Player.List.Where(x => x.IsConnected && x.Role.Type == RoleTypeId.Spectator).IsEmpty() ? Translations.SpectSwapNoSpectsMessage : Translations.SpectSwapPlayerMessage, player =>
             {
-                var spectList = Player.List.Where(x => x.Role.Type == RoleTypeId.Spectator).ToList();
+                var spectList = Player.List.Where(x => x.IsConnected && x.Role.Type == RoleTypeId.Spectator).ToList();
                 
                 if (spectList.IsEmpty())
                 {
@@ -457,7 +463,7 @@ namespace BetterCoinflips.Types
             // 20: Swaps inventory and ammo with another random player
             new CoinFlipEffect(Player.List.Where(x => !Config.InventorySwapIgnoredRoles.Contains(x.Role.Type)).Count(x => x.IsAlive) <= 1 ? Translations.InventorySwapOnePlayerMessage : Translations.InventorySwapMessage, player =>
             {
-                List<Player> playerList = Player.List.Where(x => x != player && !Config.InventorySwapIgnoredRoles.Contains(x.Role.Type)).ToList();
+                List<Player> playerList = Player.List.Where(x => x != player && x.IsAlive && !Config.InventorySwapIgnoredRoles.Contains(x.Role.Type)).ToList();
                 
                 if (playerList.Count(x => x.IsAlive) <= 1)
                 {
@@ -465,7 +471,7 @@ namespace BetterCoinflips.Types
                     return;
                 }
              
-                var target = playerList.Where(x => x != player).ToList().RandomItem();
+                var target = playerList.Where(x => x != player && x.IsAlive).ToList().RandomItem();
 
                 // Saving items
                 List<ItemType> items1 = player.Items.Select(item => item.Type).ToList();
