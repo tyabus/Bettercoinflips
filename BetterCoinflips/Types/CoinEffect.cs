@@ -341,6 +341,8 @@ namespace BetterCoinflips.Types
                         player.Role.Set(RoleTypeId.Scientist, RoleSpawnFlags.AssignInventory);
                         break;
                     case RoleTypeId.ChaosConscript:
+                        player.Role.Set(RoleTypeId.NtfPrivate, RoleSpawnFlags.AssignInventory);
+                        break;
                     case RoleTypeId.ChaosRifleman:
                         player.Role.Set(RoleTypeId.NtfSergeant, RoleSpawnFlags.AssignInventory);
                         break;
@@ -352,6 +354,8 @@ namespace BetterCoinflips.Types
                         player.Role.Set(RoleTypeId.ChaosRifleman, RoleSpawnFlags.AssignInventory);
                         break;
                     case RoleTypeId.NtfPrivate:
+                        player.Role.Set(RoleTypeId.ChaosConscript, RoleSpawnFlags.AssignInventory);
+                        break;
                     case RoleTypeId.NtfSergeant:
                     case RoleTypeId.NtfSpecialist:
                         player.Role.Set(RoleTypeId.ChaosRifleman, RoleSpawnFlags.AssignInventory);
